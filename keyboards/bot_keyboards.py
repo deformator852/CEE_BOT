@@ -3,6 +3,28 @@ from aiogram.types import InlineKeyboardButton
 
 class Keyboards:
     @staticmethod
+    async def educational_environment_keyboard():
+        builder = InlineKeyboardBuilder()
+        builder.button(text="Iнфраструктура",url="http://cee.kdu.edu.ua/uk/content/infastruktura")
+        builder.button(text="Аудиторний фонд кафдери",url="http://cee.kdu.edu.ua/uk/content/audytornyy-fond-kafedry")
+        builder.button(text="Бiблiотечний фонд кафедри",url="http://cee.kdu.edu.ua/uk/content/bibliotechnyy-fond-kafedry")
+        builder.button(text="Забезпечення особливих потреб",url="http://cee.kdu.edu.ua/uk/content/zabezpechennya-osoblyvyh-potreb")
+        builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+        builder.adjust(1)
+        return builder.as_markup()
+
+    @staticmethod
+    async def practical_training_keyboard():
+        builder = InlineKeyboardBuilder()
+        builder.button(text="Бази практик",url="http://cee.kdu.edu.ua/uk/content/bazy-praktyk")
+        builder.button(text="Нормативна документацiя",url="http://cee.kdu.edu.ua/uk/content/normatyvna-dokumentaciya")
+        builder.button(text="Договори про спiвпрацю",url="http://cee.kdu.edu.ua/uk/content/dogovory-pro-spivpracyu")
+        builder.button(text="Залучення практикiв до пiдготовки здобувачiв",url="http://cee.kdu.edu.ua/uk/content/zaluchennya-praktykiv-do-pidgotovky-zdobuvachiv")
+        builder.button(text="Вакансії з працевлаштування",url="http://cee.kdu.edu.ua/uk/node/343")
+        builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+        builder.adjust(1)
+        return builder.as_markup()
+    @staticmethod
     async def international_activity_keyboard():
         builder = InlineKeyboardBuilder()
         builder.button(text="Договори про спiвпрацю",url="http://cia.kdu.edu.ua/mignar_zvyazk_partn.php")
@@ -18,7 +40,6 @@ class Keyboards:
         builder.button(text="План роботи",url="http://cee.kdu.edu.ua/uk/content/plany-vyhovnoyi-roboty")
         builder.button(text="Заходи",url="http://cee.kdu.edu.ua/uk/content/vyhovni-zahody")
         builder.button(text="Нормативна документацiя та методичнi матерiали",url="http://cee.kdu.edu.ua/uk/content/normatyvna-dokumentaciya-ta-metodychni-materialy")
-
         builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
         builder.adjust(1)
         return builder.as_markup()
@@ -80,6 +101,6 @@ class Keyboards:
         builder.button(text="Мiжнародна дiяльнiсть",callback_data="Мiжнародна дiяльнiсть")
         builder.button(text="Практична пiдготовка", callback_data="Практична пiдготовка")
         builder.button(text="Освітнє середовище", callback_data="Освітнє середовище")
-        builder.button(text="Контакти", callback_data="Контакти")
+        builder.button(text="Контакти", url="http://cee.kdu.edu.ua/uk/content/de-nas-znayty")
         builder.adjust(1)
         return builder.as_markup()

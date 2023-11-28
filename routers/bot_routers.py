@@ -19,6 +19,28 @@ async def cmd_start(message: Message):
     )
 
 
+@router.callback_query(F.data == "Освітнє середовище")
+async def educational_environment(callback_query: CallbackQuery):
+    chat_id = callback_query.message.chat.id
+    message_id = callback_query.message.message_id
+    keyboard = await keyboards.educational_environment_keyboard()
+    text = "Освітнє середовище"
+    await bot.edit_message_text(
+        chat_id=chat_id, message_id=message_id, text=text, reply_markup=keyboard
+    )
+
+
+@router.callback_query(F.data == "Практична пiдготовка")
+async def practical_training(callback_query: CallbackQuery):
+    chat_id = callback_query.message.chat.id
+    message_id = callback_query.message.message_id
+    keyboard = await keyboards.practical_training_keyboard()
+    text = "Практична пiдготовка"
+    await bot.edit_message_text(
+        chat_id=chat_id, message_id=message_id, text=text, reply_markup=keyboard
+    )
+
+
 @router.callback_query(F.data == "back_to_main")
 async def back_to_main(callback_query: CallbackQuery):
     chat_id = callback_query.message.chat.id
@@ -28,6 +50,7 @@ async def back_to_main(callback_query: CallbackQuery):
     await bot.edit_message_text(
         chat_id=chat_id, message_id=message_id, text=text, reply_markup=keyboard
     )
+
 
 @router.callback_query(F.data == "Мiжнародна дiяльнiсть")
 async def international_activity(callback_query: CallbackQuery):
@@ -73,7 +96,9 @@ async def сasul_dual_education(callback_query: CallbackQuery):
         text="Дуальна освiта",
         url="http://cee.kdu.edu.ua/uk/content/dualna-osvita",
     )
-    builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+    builder.button(
+        text="Повернутись до головної cторiнки", callback_data="back_to_main"
+    )
     builder.adjust(1)
     chat_id = callback_query.message.chat.id
     message_id = callback_query.message.message_id
@@ -97,7 +122,9 @@ async def master(callback_query: CallbackQuery):
         text="Cпецiальнiсть 172 Телекомунікації та електротехніка",
         url="http://cee.kdu.edu.ua/uk/content/specialnist-172-telekomunikaciyi-ta-radiotehnika-magistr",
     )
-    builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+    builder.button(
+        text="Повернутись до головної cторiнки", callback_data="back_to_main"
+    )
     builder.adjust(1)
     chat_id = callback_query.message.chat.id
     message_id = callback_query.message.message_id
@@ -121,7 +148,9 @@ async def bakalavriat(callback_query: CallbackQuery):
         text="Cпецiальнiсть 171 Електронiка ",
         url="http://cee.kdu.edu.ua/uk/content/specialnist-171-elektronika",
     )
-    builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+    builder.button(
+        text="Повернутись до головної cторiнки", callback_data="back_to_main"
+    )
     builder.adjust(1)
     chat_id = callback_query.message.chat.id
     message_id = callback_query.message.message_id
@@ -143,7 +172,9 @@ async def list_education(callback_query: CallbackQuery):
     builder.button(
         text="Другий(магiстерський) рiвень вищої освiти", callback_data="master"
     )
-    builder.button(text="Повернутись до головної cторiнки",callback_data="back_to_main")
+    builder.button(
+        text="Повернутись до головної cторiнки", callback_data="back_to_main"
+    )
     builder.adjust(1)
     chat_id = callback_query.message.chat.id
     message_id = callback_query.message.message_id
@@ -165,14 +196,6 @@ async def education(callback_query: CallbackQuery):
     await bot.edit_message_text(
         chat_id=chat_id, message_id=message_id, text=text, reply_markup=keyboard
     )
-
-
-@router.callback_query(F.data == "Контакти")
-async def contacts(callback_query: CallbackQuery):
-    chat_id = callback_query.message.chat.id
-    message_id = callback_query.message.message_id
-    text = "Контакти"
-    await bot.edit_message_text(chat_id=chat_id, message_id=message_id, text=text)
 
 
 @router.callback_query(F.data == "Вступнику")
