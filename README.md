@@ -17,9 +17,7 @@ pip3 install aiogram
 
 # Інструкція для того щоб бот сам себе підіймав після перезавантаження:
 Створіть файл з розширенням .service, наприклад, bot.service:
-/etc/systemd/system/bot.service
-[Unit]
-Description=My Telegram Bot
+[Unit]Description=My Telegram Bot
 
 [Service]
 Type=simple
